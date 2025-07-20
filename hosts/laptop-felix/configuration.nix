@@ -339,7 +339,7 @@
  
   ];
 
-  services.udev.extraRules = builtins.readFile ../../udev/99-platformio-udev.rules;
+  services.udev.extraRules = builtins.readFile ../../udev/99-platformio.rules;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
