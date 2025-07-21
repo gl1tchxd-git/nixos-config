@@ -51,5 +51,28 @@
         ];
       };
     };
+
+    nixosConfigurations = {
+      desktop-felix = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {inherit inputs;};
+        modules = [
+          ({ config, lib, ... }: {
+            nixpkgs.pkgs = import nixpkgs-unstable {
+              system = "x86_64-linux";
+              config.allowUnfree = true;
+            };
+          })
+
+          ./hosts/desktop-felix/configuration.nix
+#           home-manager.nixosModules.default
+#           {
+#             home-manager.useGlobalPkgs = true;
+#             home-manager.useUserPackages = true;
+#             home-manager.users.felix = import ./hosts/desktop-felix/home.nix;
+#           }
+        ];
+      };
+    };
   };
 }
