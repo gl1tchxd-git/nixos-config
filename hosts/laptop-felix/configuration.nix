@@ -13,6 +13,8 @@
    #  ../../modules/nixos/spicetify.nix
    #  ../../modules/nixos/hanabi.nix
       ../../modules/nixos/gnome.nix
+      ../../modules/nixos/aliases.nix
+      ../../modules/nixos/plymouth.nix
     ];
 
   # Bootloader.
@@ -24,13 +26,8 @@
       efiSupport = true;
       devices = [ "nodev" ];
       extraEntries = ''
-	menuentry "Reboot" { reboot }
-	menuentry "Poweroff" { halt }
-        menuentry "Arch Linux" {
-	  set root='hd0,gpt1'
-	  linux /vmlinuz-linux root=/dev/nvme0n1p2
-	  initrd /initramfs-linux.img
-	}
+	      menuentry "Reboot" { reboot }
+	      menuentry "Poweroff" { halt }
       '';
     };
     efi.canTouchEfiVariables = true;
@@ -154,6 +151,7 @@
       freecad-wayland
       blender
       vscodium
+      losslesscut-bin
     ];  
   };
 
@@ -339,7 +337,11 @@
  
   ];
 
-  services.udev.extraRules = builtins.readFile ../../udev/99-platformio.rules;
+  services.udev.extraRules = builtins.concatStringsSep "\n" [
+  (builtins.readFile ../../udev/99-platformio.rules)
+  (builtins.readFile ../../udev/70-sayo.rules)
+];
+  
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
