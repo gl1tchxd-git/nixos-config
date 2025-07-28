@@ -13,24 +13,27 @@
 
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
-      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-      # to have it up to date or simply don't specify the nixpkgs input
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs-unstable, nixpkgs, home-manager, ... }@inputs: {
-    # use "nixos", or your hostname as the name of the configuration
-    # it's a better practice than "default" shown in the video
+  outputs = { self, nixpkgs-unstable, nixpkgs, home-manager, ... }@inputs:
+  let
+    overlay = final: prev: {
+      myPackages = import ./pkgs { pkgs = final; inherit self; };
+    };
+  in
+  {
     nixosConfigurations = {
       laptop-felix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
+        specialArgs = { inherit inputs; };
         modules = [
           ({ config, lib, ... }: {
             nixpkgs.pkgs = import nixpkgs {
               system = "x86_64-linux";
               config.allowUnfree = true;
+              overlays = [ overlay ];
             };
           })
 
@@ -50,17 +53,16 @@
           }
         ];
       };
-    };
 
-    nixosConfigurations = {
       desktop-felix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {inherit inputs;};
+        specialArgs = { inherit inputs; };
         modules = [
           ({ config, lib, ... }: {
             nixpkgs.pkgs = import nixpkgs-unstable {
               system = "x86_64-linux";
               config.allowUnfree = true;
+              overlays = [ overlay ];
             };
           })
 
