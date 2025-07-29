@@ -11,8 +11,8 @@ pkgs.stdenv.mkDerivation rec {
 		cp -r . $out/share/icons/hoshimi-miyabi
 	'';
 
-meta = with pkgs.lib; {
-	description = "Hoshimi Miyabi cursor theme";
-	platforms = platforms.linux;
-};
+	meta = with pkgs.lib; {
+		description = "Hoshimi Miyabi cursor theme";
+		platforms = platforms.linux;
+	};
 }

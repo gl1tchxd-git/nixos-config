@@ -152,6 +152,8 @@
       blender
       vscodium
       losslesscut-bin
+      catppuccin
+      catppuccin-gtk
     ];  
   };
 
