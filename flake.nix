@@ -27,7 +27,7 @@
     nixosConfigurations = {
       laptop-felix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs self; };
         modules = [
           ({ config, lib, ... }: {
             nixpkgs.pkgs = import nixpkgs {
@@ -49,6 +49,15 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = ".backup";
+            home-manager.extraSpecialArgs = { 
+              inherit inputs self;
+              system = "x86_64-linux";
+              unstable = import nixpkgs-unstable {
+                system = "x86_64-linux";
+                config.allowUnfree = true;
+              };
+            };
             home-manager.users.felix = import ./hosts/laptop-felix/home.nix;
           }
         ];
@@ -56,7 +65,7 @@
 
       desktop-felix = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs self; };
         modules = [
           ({ config, lib, ... }: {
             nixpkgs.pkgs = import nixpkgs-unstable {

@@ -9,6 +9,7 @@
     open-bar
     system-monitor
     night-theme-switcher
+    user-themes
   ] ++ (with pkgs.myPackages.gnomeCursors; [
     hoshimi-miyabi
     breezeX

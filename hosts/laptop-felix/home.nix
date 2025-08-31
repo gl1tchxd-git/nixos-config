@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ../../modules/home-manager/development.nix
+    ../../modules/home-manager/applications.nix
+    ../../modules/home-manager/theming.nix
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "felix";
