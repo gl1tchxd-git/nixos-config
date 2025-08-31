@@ -5,6 +5,8 @@
     ../../modules/home-manager/development.nix
     ../../modules/home-manager/applications.nix
     ../../modules/home-manager/theming.nix
+    ../../modules/home-manager/gnome.nix
+    # ../../modules/home-manager/aliases.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
