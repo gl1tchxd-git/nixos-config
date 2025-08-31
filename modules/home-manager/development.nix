@@ -10,6 +10,7 @@
     bison
     gnumake
     python3
+    micromamba
     meson
     jre21_minimal
     
