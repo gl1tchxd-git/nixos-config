@@ -28,14 +28,14 @@
       };
     };
     
-    cursorTheme = {
-      name = "Catppuccin-Mocha-Dark-Cursors";
-      package = pkgs.catppuccin-cursors.mochaMauve;
-    };
-    
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.papirus-icon-theme;
+    };
+
+    cursorTheme = {
+      name = "Hoshimi-Miyabi";
+      size = 24;
     };
   };
 
@@ -43,10 +43,22 @@
   fonts.fontconfig.enable = true;
   
   home.pointerCursor = {
-    name = "Catppuccin-Mocha-Dark-Cursors";
-    package = pkgs.catppuccin-cursors.mochaMauve;
-    size = 24;
+    name = "Hoshimi-Miyabi";
+    package = pkgs.myPackages.gnomeCursors.hoshimi-miyabi;
+    size = 24;  # or your preferred size
     gtk.enable = true;
     x11.enable = true;
   };
+
+  home.sessionVariables = {
+    XCURSOR_THEME = "Hoshimi-Miyabi";
+    XCURSOR_SIZE = "24";
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      cursor-theme = "Hoshimi-Miyabi";
+      cursor-size = 24;
+  };
+};
 }
