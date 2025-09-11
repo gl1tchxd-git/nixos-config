@@ -19,69 +19,66 @@
 
   outputs = { self, nixpkgs-unstable, nixpkgs, home-manager, ... }@inputs:
   let
+    system = "x86_64-linux";
+    
+    unstable = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
     overlay = final: prev: {
       myPackages = import ./pkgs { pkgs = final; inherit self; };
+      unstable = unstable;
     };
   in
   {
     nixosConfigurations = {
       laptop-felix = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = { inherit inputs self; };
         modules = [
-          ({ config, lib, ... }: {
+          {
             nixpkgs.pkgs = import nixpkgs {
-              system = "x86_64-linux";
+              inherit system;
               config.allowUnfree = true;
               overlays = [ overlay ];
             };
-          })
-
-          ({ ... }: {
-            _module.args.unstable = import nixpkgs-unstable {
-              system = "x86_64-linux";
-              config.allowUnfree = true;
-            };
-          })
-
+          }
           ./hosts/laptop-felix/configuration.nix
           home-manager.nixosModules.default
           {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.extraSpecialArgs = { 
-              inherit inputs self;
-              system = "x86_64-linux";
-              unstable = import nixpkgs-unstable {
-                system = "x86_64-linux";
-                config.allowUnfree = true;
-              };
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              backupFileExtension = "backup";
+              extraSpecialArgs = { inherit self inputs unstable; }; # pkgs.unstable will be available here
+              users.felix = import ./hosts/laptop-felix/home.nix;
             };
-            home-manager.users.felix = import ./hosts/laptop-felix/home.nix;
           }
         ];
       };
 
       desktop-felix = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = { inherit inputs self; };
         modules = [
-          ({ config, lib, ... }: {
-            nixpkgs.pkgs = import nixpkgs-unstable {
-              system = "x86_64-linux";
+          {
+            nixpkgs.pkgs = import nixpkgs {
+              inherit system;
               config.allowUnfree = true;
               overlays = [ overlay ];
             };
-          })
-
+          }
           ./hosts/desktop-felix/configuration.nix
-#           home-manager.nixosModules.default
-#           {
-#             home-manager.useGlobalPkgs = true;
-#             home-manager.useUserPackages = true;
-#             home-manager.users.felix = import ./hosts/desktop-felix/home.nix;
-#           }
+          home-manager.nixosModules.default
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit inputs self; }; # pkgs.unstable will be available here
+              users.felix = import ./hosts/desktop-felix/home.nix;
+            };
+          }
         ];
       };
     };
