@@ -4,7 +4,7 @@
     unite
     arcmenu
     blur-my-shell
-    forge
+    paperwm
     just-perfection
     open-bar
     system-monitor

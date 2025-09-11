@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
 {
   home.packages = with pkgs; [
@@ -27,19 +27,20 @@
     keyutils
 
     # IDEs 
+    # jetbrains-toolbox
     jetbrains.idea-ultimate 
     jetbrains.rust-rover 
     jetbrains.clion 
     jetbrains.pycharm-professional 
     # vscodium 
-    vscode
+    unstable.vscode
   ];
 
   programs.git = {
     enable = true;
     # Add your git configuration here if needed
     # userName = "Felix Buchsteiner";
-    # userEmail = "your.email@example.com";
+    # userEmail = "contact@gl1tchxd.at";
   };
 
   # Development environment variables
