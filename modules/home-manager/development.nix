@@ -25,6 +25,14 @@
     libusb1
     hidapi
     keyutils
+
+    # IDEs 
+    jetbrains.idea-ultimate 
+    jetbrains.rust-rover 
+    jetbrains.clion 
+    jetbrains.pycharm-professional 
+    # vscodium 
+    vscode
   ];
 
   programs.git = {
