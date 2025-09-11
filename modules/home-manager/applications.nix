@@ -11,6 +11,7 @@
     vesktop
     teams-for-linux
     arrpc
+    thunderbird
     
     # Media & Entertainment
     spotify
