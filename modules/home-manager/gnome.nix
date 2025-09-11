@@ -13,7 +13,17 @@
     # GNOME customization
     gnome-tweaks
     gdm-settings
-  ];
+  ] ++ ( with pkgs.gnomeExtensions; [
+    dash-to-dock
+    unite
+    blur-my-shell
+    paperwm
+    system-monitor
+    night-theme-switcher
+    user-themes
+  ]) ++ ( with pkgs.myPackages.gnomeCursors; [
+    hoshimi-miyabi
+  ]);
 
   # GTK theming configuration
   gtk = {
@@ -34,7 +44,7 @@
     };
 
     cursorTheme = {
-      name = "Hoshimi-Miyabi";
+      name = "Hoshimi-miyabi";
       size = 24;
     };
   };
@@ -43,7 +53,7 @@
   fonts.fontconfig.enable = true;
   
   home.pointerCursor = {
-    name = "Hoshimi-Miyabi";
+    name = "Hoshimi-miyabi";
     package = pkgs.myPackages.gnomeCursors.hoshimi-miyabi;
     size = 24;  # or your preferred size
     gtk.enable = true;
@@ -51,14 +61,30 @@
   };
 
   home.sessionVariables = {
-    XCURSOR_THEME = "Hoshimi-Miyabi";
+    XCURSOR_THEME = "Hoshimi-miyabi";
     XCURSOR_SIZE = "24";
   };
 
+  dconf.enable = true;
   dconf.settings = {
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = [
+        "dash-to-dock@micxgx.gmail.com"
+        "extension-list@tu.berry"
+        "appindicatorsupport@rgcjonas.gmail.com"
+        "blur-my-shell@aunetx"
+        "nightthemeswitcher@romainvigier.fr"
+        "paperwm@paperwm.github.com"
+        "system-monitor@gnome-shell-extensions.gcampax.github.com"
+        "unite@hardpixel.eu"
+        "user-theme@gnome-shell-extensions.gcampax.github.com"
+      ];
+    };
+    
     "org/gnome/desktop/interface" = {
-      cursor-theme = "Hoshimi-Miyabi";
+      cursor-theme = "Hoshimi-miyabi";
       cursor-size = 24;
+    };
   };
-};
 }

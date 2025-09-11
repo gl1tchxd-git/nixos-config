@@ -1,10 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
 {
   imports = [
     ../../modules/home-manager/development.nix
     ../../modules/home-manager/applications.nix
-    ../../modules/home-manager/theming.nix
+    ../../modules/home-manager/gnome.nix
     # ../../modules/home-manager/aliases.nix
   ];
 
