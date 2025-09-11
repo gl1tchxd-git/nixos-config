@@ -37,10 +37,6 @@
     freecad-wayland
     blender
     
-    # Development IDEs
-    jetbrains-toolbox
-    vscodium
-    
     # File Management
     kdePackages.dolphin
     bottles
