@@ -37,6 +37,7 @@
     aseprite
     freecad-wayland
     blender
+    drawio
     
     # File Management
     kdePackages.dolphin
