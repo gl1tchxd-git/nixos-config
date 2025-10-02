@@ -60,7 +60,12 @@
   services.tailscale.enable = true;
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
   systemd.services.ModemManager.enable = false;
 
   # Set your time zone.
