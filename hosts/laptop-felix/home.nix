@@ -6,7 +6,6 @@
     ../../modules/home-manager/applications.nix
     ../../modules/home-manager/gnome.nix
     ../../modules/home-manager/fonts.nix
-    ../../modules/home-manager/fusion360.nix
     # ../../modules/home-manager/aliases.nix
   ];
 
