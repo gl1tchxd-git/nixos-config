@@ -39,11 +39,6 @@
     blender
     drawio
     
-    # File Management
-    kdePackages.dolphin
-    bottles
-    lutris
-    
     # System Tools
     gparted
     protonvpn-gui

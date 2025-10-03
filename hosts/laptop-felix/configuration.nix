@@ -261,10 +261,14 @@
     # System administration tools
     wget
     cifs-utils
+    mokutil
     
     # Virtualization
     gnome-boxes
     virt-manager
+
+    bottles
+    lutris
   ];
 
   services.udev.packages = [ 
