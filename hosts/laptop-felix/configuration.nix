@@ -269,6 +269,8 @@
 
     bottles
     lutris
+    inputs.winapps.packages."${system}".winapps
+    inputs.winapps.packages."${system}".winapps-launcher
   ];
 
   services.udev.packages = [ 
