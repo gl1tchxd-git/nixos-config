@@ -275,6 +275,10 @@
     inputs.winboat.packages."${system}".winboat
   ];
 
+  environment.sessionVariables = {
+    WINEDLLOVERRIDES = "comdlg32=n,b";  # Use native then builtin
+  };
+
   services.udev.packages = [ 
     pkgs.platformio-core
     pkgs.openocd
