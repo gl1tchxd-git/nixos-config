@@ -43,6 +43,7 @@
     gparted
     protonvpn-gui
     remmina
+    freerdp
     
     # Terminal & CLI Tools
     unstable.warp-terminal

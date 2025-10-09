@@ -50,6 +50,8 @@
     };
   };
 
+  virtualisation.docker.enable = true;
+
   networking.hostName = "laptop-felix"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -124,7 +126,7 @@
   users.users.felix = {
     isNormalUser = true;
     description = "Felix Buchsteiner";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "dialout" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" "dialout" "docker" ];
     # User packages moved to home-manager modules
   };
 
@@ -263,10 +265,9 @@
     cifs-utils
     mokutil
     
-    # Virtualization
+    # Virtualization & Containers
     gnome-boxes
     virt-manager
-
     bottles
     lutris
     # inputs.winapps.packages."${system}".winapps
