@@ -16,13 +16,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # winapps = {
-    #   url = "github:winapps-org/winapps";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    winboat = {
-      url = "github:TibixDev/winboat";
+    winapps = {
+      url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
