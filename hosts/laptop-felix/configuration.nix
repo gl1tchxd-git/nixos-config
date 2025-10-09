@@ -88,7 +88,24 @@
     LC_TIME = "de_AT.UTF-8";
   };
 
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      mesa
+      intel-media-driver
+      intel-compute-runtime
+    ];
+  };
+
+  services.xserver.videoDrivers = [ "intel" ];
+
+  # Enable VA-API acceleration for video
+  environment.variables = {
+    LIBVA_DRIVER_NAME = "iHD";
+    WAYLAND_DISPLAY = "wayland-0";
+    XDG_RUNTIME_DIR = "/run/user/1000";
+  };
+
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -270,13 +287,12 @@
     virt-manager
     bottles
     lutris
-    # inputs.winapps.packages."${system}".winapps
-    # inputs.winapps.packages."${system}".winapps-launcher
-    inputs.winboat.packages."${system}".winboat
+    inputs.winapps.packages."${system}".winapps
+    inputs.winapps.packages."${system}".winapps-launcher
   ];
 
   environment.sessionVariables = {
-    WINEDLLOVERRIDES = "comdlg32=n,b";  # Use native then builtin
+    WINEDLLOVERRIDES = "comdlg32=n,b";
   };
 
   services.udev.packages = [ 
