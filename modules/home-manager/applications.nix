@@ -36,7 +36,7 @@
     eagle
     aseprite
     freecad-wayland
-    blender
+    unstable.blender
     drawio
     
     # System Tools
