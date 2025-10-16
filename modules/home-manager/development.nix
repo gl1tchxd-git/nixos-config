@@ -12,7 +12,7 @@
     python3
     micromamba
     meson
-    jre21_minimal
+    jdk
     
     # Hardware development
     platformio
