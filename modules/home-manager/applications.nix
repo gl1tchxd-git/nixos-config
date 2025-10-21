@@ -39,6 +39,8 @@
     freecad-wayland
     unstable.blender
     drawio
+    krita
+    gimp
     
     # System Tools
     gparted
