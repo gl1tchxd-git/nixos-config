@@ -66,5 +66,6 @@
     octaveFull
     mesa-demos
     xorg.xprop
+    unstable.digital
   ];
 }
