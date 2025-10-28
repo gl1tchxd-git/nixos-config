@@ -1,4 +1,5 @@
-{
+
+{ pkgs, lib, ... }: {
   inputs = {
     nixpkgs.follows = "nixos-cosmic/nixpkgs"; # NOTE: change "nixpkgs" to "nixpkgs-stable" to use stable NixOS release
     nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
