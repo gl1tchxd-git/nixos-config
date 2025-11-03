@@ -11,6 +11,7 @@ let
     /desktop/gnome.nix
     /development/embedded.nix
     /development/sysadmin.nix
+    /gaming/steam.nix
     /hardware/audio.nix
     /hardware/fingerprint.nix
     /hardware/graphics.nix
