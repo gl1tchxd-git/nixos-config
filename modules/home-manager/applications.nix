@@ -46,7 +46,6 @@
     gparted
     remmina
     freerdp
-    pritunl-client
     
     # Terminal & CLI Tools
     unstable.warp-terminal
