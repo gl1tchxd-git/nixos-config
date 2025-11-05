@@ -44,9 +44,9 @@
     
     # System Tools
     gparted
-    protonvpn-gui
     remmina
     freerdp
+    openvpn3
     
     # Terminal & CLI Tools
     unstable.warp-terminal
