@@ -25,6 +25,7 @@
     # steamtinkerlaunch
     furmark
     rpcs3
+    prismlauncher
     
     # Office & Productivity
     masterpdfeditor4
