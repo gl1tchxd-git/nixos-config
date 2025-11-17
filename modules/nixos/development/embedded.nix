@@ -7,7 +7,9 @@
   services.udev.packages = [ 
     pkgs.platformio-core
   ];
-
+  environment.systemPackages = with pkgs; [
+    avrdude
+  ];
   services.udev.extraRules = builtins.concatStringsSep "\n" [
     (builtins.readFile ../../../udev/99-platformio.rules)
   ];
