@@ -12,8 +12,4 @@
     libGL
     glfw-wayland
   ];
-
-  environment.sessionVariables = {
-    LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
-  };
 }

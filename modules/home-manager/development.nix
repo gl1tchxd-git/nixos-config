@@ -4,15 +4,7 @@
   home.packages = with pkgs; [
     # Development tools
     vim
-    git
-    gcc
-    rustup
-    bison
-    gnumake
-    python3
-    micromamba
-    meson
-    jdk
+    git    
     
     # Hardware development
     platformio
