@@ -26,6 +26,7 @@
     jetbrains.pycharm-professional 
     # vscodium 
     unstable.vscode
+    unstable.zed-editor
   ];
 
   programs.git = {
