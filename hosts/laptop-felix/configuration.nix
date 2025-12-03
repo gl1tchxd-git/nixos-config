@@ -11,7 +11,7 @@ let
     /desktop/gnome.nix
     /development/embedded.nix
     /development/sysadmin.nix
-    /development/gui.nix
+    /development/java.nix
     /development/langs.nix
     /gaming/steam.nix
     /hardware/audio.nix
