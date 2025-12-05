@@ -4,5 +4,6 @@
     wget
     cifs-utils
     mokutil
+    appimage-run
   ];
 }
