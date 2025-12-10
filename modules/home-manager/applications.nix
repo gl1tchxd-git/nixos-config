@@ -67,5 +67,6 @@
     mesa-demos
     xorg.xprop
     unstable.digital
+    unstable.mathematica
   ];
 }
