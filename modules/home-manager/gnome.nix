@@ -13,6 +13,7 @@
     # GNOME customization
     gnome-tweaks
     gdm-settings
+    xremap
   ] ++ ( with pkgs.gnomeExtensions; [
     dash-to-dock
     unite
@@ -21,6 +22,7 @@
     system-monitor
     night-theme-switcher
     user-themes
+    xremap
   ]) ++ ( with pkgs.myPackages.gnomeCursors; [
     hoshimi-miyabi
   ]);
