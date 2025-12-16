@@ -8,5 +8,7 @@
     python3
     micromamba
     meson
+    dotnet-sdk_9
+    unstable.avalonia
   ];
 }
