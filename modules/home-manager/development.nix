@@ -24,6 +24,7 @@
     jetbrains.rust-rover 
     jetbrains.clion 
     jetbrains.pycharm-professional 
+    unstable.jetbrains.rider
     # vscodium 
     unstable.vscode
     unstable.zed-editor
