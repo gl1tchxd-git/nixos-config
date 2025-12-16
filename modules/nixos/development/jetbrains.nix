@@ -24,8 +24,10 @@
     expat
     flac
     fontconfig
+    fontconfig.lib
     freeglut
     freetype
+    freetype.out
     fribidi
     fuse
     fuse3
@@ -37,6 +39,7 @@
     gst_all_1.gst-plugins-ugly
     gst_all_1.gstreamer
     gtk2
+    gtk3
     harfbuzz
     icu
     keyutils.lib
@@ -56,6 +59,7 @@
     libjpeg
     libmikmod
     libogg
+    libpng
     libpng12
     libpulseaudio
     librsvg
@@ -114,5 +118,7 @@
     xorg.xkeyboardconfig
     xz
     zlib
+    skia
+    skia.out
   ];
 }
