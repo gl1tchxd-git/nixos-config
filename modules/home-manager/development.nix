@@ -11,6 +11,7 @@
     arduino-ide
     teensy-loader-cli
     rpi-imager
+    hterm
     
     # System utilities for development
     usbutils
