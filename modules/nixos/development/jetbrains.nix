@@ -120,5 +120,7 @@
     zlib
     skia
     skia.out
+    glfw
+    glfw-wayland
   ];
 }
