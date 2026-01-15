@@ -35,7 +35,7 @@
     
     # Creative & Design
     # kicad
-    unstable.kicad-unstable
+    master.kicad-unstable
     eagle
     aseprite
     freecad-wayland
