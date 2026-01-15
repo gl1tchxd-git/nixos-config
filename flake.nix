@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     home-manager = {
@@ -21,7 +22,7 @@
     };
   };
 
-  outputs = { self, nixpkgs-unstable, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs-unstable, nixpkgs-master, nixpkgs, home-manager, ... }@inputs:
   let
     inherit (self) outputs;
   in
@@ -31,6 +32,10 @@
       let
         system = "x86_64-linux";
         pkgs-unstable = import nixpkgs-unstable {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        pkgs-master = import nixpkgs-master {
           inherit system;
           config.allowUnfree = true;
         };
@@ -44,6 +49,9 @@
             nixpkgs.overlays = [
               (final: prev: {
                 unstable = pkgs-unstable;
+              })
+              (final: prev: {
+                master = pkgs-master;
               })
               (final: prev: {
                 myPackages = import ./pkgs { pkgs = final; inherit self; };
@@ -71,6 +79,10 @@
           inherit system;
           config.allowUnfree = true;
         };
+        pkgs-master = import nixpkgs-master {
+          inherit system;
+          config.allowUnfree = true;
+        };
       in
       nixpkgs.lib.nixosSystem {
         inherit system;
@@ -81,6 +93,9 @@
             nixpkgs.overlays = [
               (final: prev: {
                 unstable = pkgs-unstable;
+              })
+              (final: prev: {
+                master = pkgs-master;
               })
               (final: prev: {
                 myPackages = import ./pkgs { pkgs = final; inherit self; };
