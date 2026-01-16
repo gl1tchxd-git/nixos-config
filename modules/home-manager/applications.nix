@@ -48,6 +48,8 @@
     gparted
     remmina
     freerdp
+    pkgs.myPackages.ciscoPacketTracer9
+    wireshark
     
     # Terminal & CLI Tools
     unstable.warp-terminal
