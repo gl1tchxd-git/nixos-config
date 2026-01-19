@@ -40,6 +40,10 @@ in
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  nixpkgs.config.permittedInsecurePackages = [
+    "ciscoPacketTracer8-8.2.2"
+  ];
+
   networking.hostName = "laptop-felix";
   system.stateVersion = "25.05"; # Did you read the comment?
 }

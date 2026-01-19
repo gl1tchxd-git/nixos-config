@@ -48,7 +48,7 @@
     gparted
     remmina
     freerdp
-    pkgs.myPackages.ciscoPacketTracer9
+    unstable.ciscoPacketTracer8
     wireshark
     
     # Terminal & CLI Tools

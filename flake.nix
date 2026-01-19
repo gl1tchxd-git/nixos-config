@@ -34,6 +34,9 @@
         pkgs-unstable = import nixpkgs-unstable {
           inherit system;
           config.allowUnfree = true;
+          config.permittedInsecurePackages = [
+            "ciscoPacketTracer8-8.2.2"
+          ];
         };
         pkgs-master = import nixpkgs-master {
           inherit system;
