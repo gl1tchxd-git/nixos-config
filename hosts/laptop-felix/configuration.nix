@@ -20,7 +20,6 @@ let
     /hardware/sayo.nix
     /hardware/tablet.nix
     /hardware/touchpad.nix
-    /hardware/fans.nix
     /localization
     /networking
     /networking/tailscale.nix
