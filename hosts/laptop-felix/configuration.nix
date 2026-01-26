@@ -30,6 +30,7 @@ let
     /virtualization/wine.nix
     /users.nix
     /aliases.nix
+    /fusion.nix
   ];
 in
 {
