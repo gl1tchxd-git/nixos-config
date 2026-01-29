@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  fusion-env = pkgs.buildFHSUserEnv {
+  fusion-env = pkgs.buildFHSEnv {
     name = "fusion360-env";
     targetPkgs = pkgs: (with pkgs; [
       # -- Core Utilities --

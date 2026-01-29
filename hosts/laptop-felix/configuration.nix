@@ -28,6 +28,7 @@ let
     /virtualization/docker.nix
     /virtualization/libvirt.nix
     /virtualization/wine.nix
+    /virtualization/distrobox.nix
     /users.nix
     /aliases.nix
     /fusion.nix
