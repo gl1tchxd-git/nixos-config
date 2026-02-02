@@ -6,6 +6,8 @@
     ../../modules/home-manager/applications.nix
     ../../modules/home-manager/gnome.nix
     ../../modules/home-manager/fonts.nix
+    ../../modules/home-manager/zsh.nix
+    ../../modules/home-manager/starship.nix
     # ../../modules/home-manager/aliases.nix
   ];
 

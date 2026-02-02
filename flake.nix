@@ -67,7 +67,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              backupFileExtension = "backup";
+              backupFileExtension = "hm-backup";
               extraSpecialArgs = { inherit inputs outputs; };
               users.felix = import ./hosts/laptop-felix/home.nix;
             };
@@ -111,7 +111,7 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              backupFileExtension = "backup";
+              backupFileExtension = "hm-backup";
               extraSpecialArgs = { inherit inputs outputs; };
               users.felix = import ./hosts/desktop-felix/home.nix;
             };
