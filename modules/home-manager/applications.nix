@@ -43,6 +43,7 @@
     drawio
     krita
     gimp
+    prusa-slicer
     
     # System Tools
     gparted
