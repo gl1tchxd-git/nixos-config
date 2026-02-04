@@ -6,9 +6,6 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    
-    # Set zsh as default shell
-    defaultKeymap = "emacs";
 
     shellAliases = {
         ll = "ls -l";

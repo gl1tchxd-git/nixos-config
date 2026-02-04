@@ -8,6 +8,8 @@
   };
   systemd.services.ModemManager.enable = false;
 
+  services.avahi.enable = true;
+
   # pritunl client for VPN connections
 
   systemd.services.pritunl-client = {
