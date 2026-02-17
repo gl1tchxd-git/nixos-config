@@ -35,7 +35,7 @@
           inherit system;
           config.allowUnfree = true;
           config.permittedInsecurePackages = [
-            "ciscoPacketTracer8-8.2.2"
+            "cisco-packet-tracer-8.2.2"
           ];
         };
         pkgs-master = import nixpkgs-master {

@@ -42,7 +42,7 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ciscoPacketTracer8-8.2.2"
+    "cisco-packet-tracer-8.2.2"
   ];
 
   networking.hostName = "laptop-felix";
