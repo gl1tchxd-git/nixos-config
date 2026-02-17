@@ -5,5 +5,6 @@
     cifs-utils
     mokutil
     appimage-run
+    direnv
   ];
 }
