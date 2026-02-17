@@ -21,7 +21,7 @@
 
     # IDEs 
     # jetbrains-toolbox
-    unstable.jetbrains.idea-ultimate 
+    unstable.jetbrains.idea 
     jetbrains.rust-rover 
     jetbrains.clion 
     jetbrains.pycharm-professional 
