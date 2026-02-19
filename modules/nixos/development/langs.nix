@@ -10,5 +10,7 @@
     meson
     dotnet-sdk_9
     unstable.avalonia
+    nil
+    nixd
   ];
 }
