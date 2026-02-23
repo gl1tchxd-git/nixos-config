@@ -8,6 +8,7 @@
     ../../modules/home-manager/fonts.nix
     ../../modules/home-manager/zsh.nix
     ../../modules/home-manager/starship.nix
+    ../../modules/home-manager/kitty.nix
     # ../../modules/home-manager/aliases.nix
   ];
 
