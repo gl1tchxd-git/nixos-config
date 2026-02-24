@@ -15,6 +15,21 @@
 
         amend = "git commit --amend --no-edit;";
     };
+    
     history.size = 10000;
-    };
+
+    initExtraFirst = ''
+      autoload -Uz add-zsh-hook
+
+      function __nl_after_first_prompt() {
+        if [[ -z "''${__FIRST_PROMPT_DONE-}" ]]; then
+          __FIRST_PROMPT_DONE=1
+        else
+          print
+        fi
+      }
+
+      add-zsh-hook precmd __nl_after_first_prompt
+    '';
+  };
 }
