@@ -49,7 +49,7 @@
     gparted
     remmina
     freerdp
-    unstable.ciscoPacketTracer8
+    unstable.cisco-packet-tracer_9
     wireshark
     
     # Terminal & CLI Tools
