@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
+  home.activation.removeExistingBackups = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
+    find ~/.config -name "*.hm-backup" -delete 2>/dev/null || true
+  '';
+
   home.packages = with pkgs; [
     # Catppuccin theme components
     catppuccin
