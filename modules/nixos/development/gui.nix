@@ -14,7 +14,6 @@
     glfw
     wayland
     libxkbcommon
-    glfw-wayland
   ];
 
   environment.variables = {
