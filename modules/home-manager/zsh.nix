@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, lib, inputs, ... }:
 
 {
   programs.zsh = {
@@ -18,7 +18,7 @@
     
     history.size = 10000;
 
-    initExtraFirst = ''
+    initContent = lib.mkBefore ''
       autoload -Uz add-zsh-hook
 
       function __nl_after_first_prompt() {

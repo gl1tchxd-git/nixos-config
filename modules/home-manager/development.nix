@@ -24,7 +24,7 @@
     unstable.jetbrains.idea 
     jetbrains.rust-rover 
     jetbrains.clion 
-    jetbrains.pycharm-professional 
+    jetbrains.pycharm 
     unstable.jetbrains.rider
     # vscodium 
     unstable.vscode
