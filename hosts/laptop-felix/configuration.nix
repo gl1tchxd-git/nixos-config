@@ -44,6 +44,7 @@ in
 
   nixpkgs.config.permittedInsecurePackages = [
     "cisco-packet-tracer-8.2.2"
+    "qtwebengine-5.15.19"
   ];
 
   networking.hostName = "laptop-felix";
