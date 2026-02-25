@@ -1,6 +1,6 @@
 { pkgs, lib, ... }: {
   environment.systemPackages = with pkgs; [
-    openjdk24
+    openjdk25
     gcc
     rustup
     bison
