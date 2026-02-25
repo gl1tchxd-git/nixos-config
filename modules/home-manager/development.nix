@@ -42,4 +42,14 @@
   home.sessionVariables = {
     # Add any development-specific environment variables here
   };
+
+  xdg.desktopEntries.nixos-config = {
+    name = "NixOS Config";
+    comment = "Open NixOS configuration in VSCode";
+    exec = "code /home/felix/nixos";
+    icon = "vscode";
+    
+    terminal = false;
+    categories = [ "Development" ];
+  };
 }
