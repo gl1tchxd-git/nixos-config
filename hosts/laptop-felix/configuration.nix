@@ -8,7 +8,8 @@ let
   modules = map (m: ../../modules/nixos + m) [
     /boot/grub.nix
     /boot/plymouth.nix
-    /desktop/gnome.nix
+    # /desktop/gnome.nix
+    /desktop/cosmic.nix
     /development/embedded.nix
     /development/sysadmin.nix
     /development/jetbrains.nix
