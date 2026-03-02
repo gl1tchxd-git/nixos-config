@@ -12,5 +12,7 @@
   ];
   services.udev.extraRules = builtins.concatStringsSep "\n" [
     (builtins.readFile ../../../udev/99-platformio.rules)
+    (builtins.readFile ../../../udev/z010_mchp_tools.rules)
+    (builtins.readFile ../../../udev/z012_mchp_efr.rules)
   ];
 }
