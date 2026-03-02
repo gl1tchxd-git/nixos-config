@@ -24,6 +24,7 @@ let
     /localization
     /networking
     /networking/tailscale.nix
+    /networking/vpns.nix
     /services/onedrive.nix
     /services/printing.nix
     /virtualization/docker.nix
