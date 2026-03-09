@@ -9,6 +9,9 @@
   ];
   environment.systemPackages = with pkgs; [
     avrdude
+    avra 
+    simavr 
+    # avr-gdb
   ];
   services.udev.extraRules = builtins.concatStringsSep "\n" [
     (builtins.readFile ../../../udev/99-platformio.rules)
