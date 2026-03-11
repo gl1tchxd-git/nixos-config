@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   programs.kitty = {
@@ -19,9 +24,13 @@
 
   xdg.configFile = {
     "kitty/dark-theme.auto.conf".text = builtins.readFile ../../data/themes/kitty-dark.conf;
-    
+
     "kitty/no-preference-theme.auto.conf".text = builtins.readFile ../../data/themes/kitty-light.conf;
-    
+
     "kitty/light-theme.auto.conf".text = builtins.readFile ../../data/themes/kitty-light.conf;
+  };
+
+  xdg.terminal-exec.settings = {
+    default = [ "kitty.desktop" ];
   };
 }
