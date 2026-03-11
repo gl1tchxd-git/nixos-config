@@ -8,30 +8,6 @@
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [ "/home/felix/nixos/data/config/.wg-env" ];
     profiles = {
-      "Slovenia" = {
-        connection = {
-          id = "Slovenia";
-          type = "wireguard";
-          interface-name = "wg-slovenia";
-          autoconnect = "false";
-        };
-        wireguard = {
-          private-key = "$WG_PRIVATE_KEY";
-        };
-        "wireguard-peer.yPdmxOfzm06fotkt/dlaAiyxWPaWfCuDPaUljNx+c38=" = {
-          endpoint = "si-lju.prod.surfshark.com:51820";
-          allowed-ips = "0.0.0.0/0;";
-        };
-        ipv4 = {
-          method = "manual";
-          address1 = "10.14.0.2/16";
-          dns = "162.252.172.57;149.154.159.92;";
-        };
-        ipv6 = {
-          method = "disabled";
-        };
-      };
-
       "US" = {
         connection = {
           id = "US";
