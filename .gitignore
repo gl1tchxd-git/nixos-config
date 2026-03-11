@@ -1,2 +1,3 @@
 data/prefetch
 data/config
+.pre-commit-config.yaml

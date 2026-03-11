@@ -20,101 +20,106 @@
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-  };
 
-  outputs = { self, nixpkgs-unstable, nixpkgs-master, nixpkgs, home-manager, ... }@inputs:
-  let
-    inherit (self) outputs;
-  in
-  {
-    nixosConfigurations = {
-      laptop-felix = 
-      let
-        system = "x86_64-linux";
-        pkgs-unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        pkgs-master = import nixpkgs-master {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      in
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          {
-            nixpkgs.config.allowUnfree = true;
-            nixpkgs.overlays = [
-              (final: prev: {
-                unstable = pkgs-unstable;
-              })
-              (final: prev: {
-                master = pkgs-master;
-              })
-              (final: prev: {
-                myPackages = import ./pkgs { pkgs = final; inherit self; };
-              })
-            ];
-          }
-          ./hosts/laptop-felix/configuration.nix
-          home-manager.nixosModules.default
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "hm-backup";
-              extraSpecialArgs = { inherit inputs outputs; };
-              users.felix = import ./hosts/laptop-felix/home.nix;
-            };
-          }
-        ];
-      };
-
-      desktop-felix = 
-      let
-        system = "x86_64-linux";
-        pkgs-unstable = import nixpkgs-unstable {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        pkgs-master = import nixpkgs-master {
-          inherit system;
-          config.allowUnfree = true;
-        };
-      in
-      nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs outputs; };
-        modules = [
-          {
-            nixpkgs.config.allowUnfree = true;
-            nixpkgs.overlays = [
-              (final: prev: {
-                unstable = pkgs-unstable;
-              })
-              (final: prev: {
-                master = pkgs-master;
-              })
-              (final: prev: {
-                myPackages = import ./pkgs { pkgs = final; inherit self; };
-              })
-            ];
-          }
-          ./hosts/desktop-felix/configuration.nix
-          home-manager.nixosModules.default
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              backupFileExtension = "hm-backup";
-              extraSpecialArgs = { inherit inputs outputs; };
-              users.felix = import ./hosts/desktop-felix/home.nix;
-            };
-          }
-        ];
-      };
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
+
+  outputs =
+    {
+      self,
+      nixpkgs-unstable,
+      nixpkgs-master,
+      nixpkgs,
+      home-manager,
+      git-hooks,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+
+      mkPkgsOverlays = system: [
+        (final: prev: {
+          unstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        })
+        (final: prev: {
+          master = import nixpkgs-master {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        })
+        (final: prev: {
+          myPackages = import ./pkgs {
+            pkgs = final;
+            inherit self;
+          };
+        })
+      ];
+    in
+    {
+      checks.${system}.pre-commit-check = git-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          nixfmt-rfc-style.enable = true;
+        };
+      };
+
+      devShells.${system}.default = pkgs.mkShell {
+        inherit (self.checks.${system}.pre-commit-check) shellHook;
+        buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
+      };
+
+      nixosConfigurations = {
+        laptop-felix = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            {
+              nixpkgs.config.allowUnfree = true;
+              nixpkgs.overlays = mkPkgsOverlays system;
+            }
+            ./hosts/laptop-felix/configuration.nix
+            home-manager.nixosModules.default
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "hm-backup";
+                extraSpecialArgs = { inherit inputs outputs; };
+                users.felix = import ./hosts/laptop-felix/home.nix;
+              };
+            }
+          ];
+        };
+
+        desktop-felix = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs outputs; };
+          modules = [
+            {
+              nixpkgs.config.allowUnfree = true;
+              nixpkgs.overlays = mkPkgsOverlays system;
+            }
+            ./hosts/desktop-felix/configuration.nix
+            home-manager.nixosModules.default
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                backupFileExtension = "hm-backup";
+                extraSpecialArgs = { inherit inputs outputs; };
+                users.felix = import ./hosts/desktop-felix/home.nix;
+              };
+            }
+          ];
+        };
+      };
+    };
 }
