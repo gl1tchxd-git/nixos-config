@@ -58,7 +58,6 @@
         (final: prev: {
           myPackages = import ./pkgs {
             pkgs = final;
-            inherit self;
           };
         })
       ];

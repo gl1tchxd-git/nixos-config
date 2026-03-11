@@ -45,9 +45,9 @@
 
   xdg.desktopEntries.nixos-config = {
     name = "NixOS Config";
-    comment = "Open NixOS configuration in VSCode";
-    exec = "code /home/felix/nixos";
-    icon = "vscode";
+    comment = "Open NixOS configuration in Zed";
+    exec = "zeditor /home/felix/nixos";
+    icon = "/home/felix/nixos/data/icons/zed-nixos.png";
     
     terminal = false;
     categories = [ "Development" ];
