@@ -6,6 +6,9 @@
       package = pkgs.qemu_kvm;
       runAsRoot = true;
       swtpm.enable = true;
+      verbatimConfig = ''
+        firmware_metadata_dirs = ["${pkgs.qemu_kvm}/share/qemu/firmware"]
+      '';
     };
   };
 
