@@ -4,7 +4,7 @@ pkgs.stdenv.mkDerivation rec {
   pname = "hoshimi-miyabi-cursors";
   version = "1.0";
 
-  src = ../../../data/cursors/hoshimi-miyabi;
+  src = ../../data/cursors/hoshimi-miyabi;
 
   dontBuild = true;
   dontConfigure = true;

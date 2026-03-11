@@ -4,7 +4,7 @@ pkgs.stdenv.mkDerivation rec {
   pname = "gnomeCursors.breezeX";
   version = "1.0";
 
-  src = ../../../data/cursors/breezeX;
+  src = ../../data/cursors/breezeX;
 
   installPhase = ''
     mkdir -p $out/share/icons
