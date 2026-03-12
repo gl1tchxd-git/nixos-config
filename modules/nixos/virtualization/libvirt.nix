@@ -15,4 +15,6 @@
   environment.systemPackages = with pkgs; [
     virt-manager
   ];
+
+  services.spice-vdagentd.enable = true;
 }
