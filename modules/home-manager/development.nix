@@ -4,29 +4,31 @@
   home.packages = with pkgs; [
     # Development tools
     vim
-    git    
-    
+    git
+
     # Hardware development
     platformio
     arduino-ide
     teensy-loader-cli
     rpi-imager
     hterm
-    
+    pulseview
+    sigrok-cli
+
     # System utilities for development
     usbutils
     libusb1
     hidapi
     keyutils
 
-    # IDEs 
+    # IDEs
     # jetbrains-toolbox
-    unstable.jetbrains.idea 
-    jetbrains.rust-rover 
-    jetbrains.clion 
-    jetbrains.pycharm 
+    unstable.jetbrains.idea
+    jetbrains.rust-rover
+    jetbrains.clion
+    jetbrains.pycharm
     unstable.jetbrains.rider
-    # vscodium 
+    # vscodium
     unstable.vscode
     unstable.zed-editor
   ];
@@ -48,7 +50,7 @@
     comment = "Open NixOS configuration in Zed";
     exec = "zeditor /home/felix/nixos";
     icon = "/home/felix/nixos/data/icons/zed-nixos.png";
-    
+
     terminal = false;
     categories = [ "Development" ];
   };

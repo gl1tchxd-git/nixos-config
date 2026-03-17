@@ -1,16 +1,18 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc
     zlib
   ];
-  services.udev.packages = [ 
-    pkgs.platformio-core
+  services.udev.packages = with pkgs; [
+    platformio-core
+    libsigrok
   ];
   environment.systemPackages = with pkgs; [
     avrdude
-    avra 
-    simavr 
+    avra
+    simavr
     # avr-gdb
   ];
   services.udev.extraRules = builtins.concatStringsSep "\n" [
