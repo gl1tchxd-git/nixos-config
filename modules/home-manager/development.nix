@@ -40,6 +40,15 @@
     # userEmail = "contact@gl1tchxd.at";
   };
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultOptions = [
+      "--style=full"
+      "--layout=reverse" # prompt at top
+    ];
+  };
+
   # Development environment variables
   home.sessionVariables = {
     # Add any development-specific environment variables here

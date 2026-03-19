@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   home.packages = with pkgs; [
@@ -6,19 +11,19 @@
     firefox
     google-chrome
     inputs.zen-browser.packages."${pkgs.system}".twilight
-    
+
     # Communication
     vesktop
     teams-for-linux
     arrpc
     thunderbird
     teamspeak6-client
-    
+
     # Media & Entertainment
     spotify
     losslesscut-bin
     ani-cli
-    
+
     # Gaming
     lunar-client
     osu-lazer-bin
@@ -26,13 +31,13 @@
     furmark
     rpcs3
     prismlauncher
-    
+
     # Office & Productivity
     masterpdfeditor4
     libreoffice-still
     xournalpp
     rnote
-    
+
     # Creative & Design
     # kicad
     master.kicad-unstable
@@ -44,14 +49,14 @@
     krita
     gimp
     prusa-slicer
-    
+
     # System Tools
     gparted
     remmina
     freerdp
     unstable.cisco-packet-tracer_9
     wireshark
-    
+
     # Terminal & CLI Tools
     unstable.warp-terminal
     btop
@@ -62,8 +67,7 @@
     hyfetch
     cbonsai
     pipes
-    fzf
-    
+
     # Utilities
     # geogebra6
     unstable.satisfactorymodmanager
