@@ -49,13 +49,6 @@
     ];
   };
 
-  # Ensure *all* fzf invocations (including those from plugins/widgets that don't
-  # forward Home Manager's `defaultOptions`) consistently pick up the same UI.
-  #
-  # This fixes the observed behavior where one fzf call looked correct, but
-  # subsequent fzf invocations reverted to defaults because FZF_DEFAULT_OPTS was empty.
-  home.sessionVariables.FZF_DEFAULT_OPTS = "--style=full --layout=reverse";
-
   # Development environment variables
   home.sessionVariables = {
     # Add any development-specific environment variables here
