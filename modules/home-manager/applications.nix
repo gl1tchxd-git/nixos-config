@@ -76,5 +76,6 @@
     xorg.xprop
     unstable.digital
     unstable.mathematica
+    qalculate-gtk
   ];
 }
