@@ -13,6 +13,7 @@
     avrdude
     avra
     simavr
+    fxload
     # avr-gdb
   ];
   services.udev.extraRules = builtins.concatStringsSep "\n" [
