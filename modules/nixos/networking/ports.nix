@@ -5,5 +5,8 @@
   ...
 }:
 {
-  networking.firewall.allowedTCPPorts = [ 3389 ];
+  networking.firewall.allowedTCPPorts = [
+    3389
+    3390
+  ];
 }
