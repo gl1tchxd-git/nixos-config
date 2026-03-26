@@ -2,7 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running 'nixos-help').
 
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   modules = map (m: ../../modules/nixos + m) [
@@ -25,6 +30,7 @@ let
     /networking
     /networking/tailscale.nix
     /networking/vpns.nix
+    /networking/ports.nix
     /services/onedrive.nix
     /services/printing.nix
     /virtualization/docker.nix
@@ -39,9 +45,13 @@ in
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModules.default
-  ] ++ modules;
+  ]
+  ++ modules;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   networking.hostName = "laptop-felix";
   system.stateVersion = "25.11";
