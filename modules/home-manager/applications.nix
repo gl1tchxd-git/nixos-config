@@ -39,8 +39,8 @@
     rnote
 
     # Creative & Design
-    # kicad
-    master.kicad-unstable
+    unstable.kicad
+    # master.kicad-unstable
     # eagle
     aseprite
     freecad-wayland
