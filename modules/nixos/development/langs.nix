@@ -1,11 +1,12 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   environment.systemPackages = with pkgs; [
     openjdk25
     gcc
     rustup
     bison
     gnumake
-    python3
+    unstable.python3
     micromamba
     meson
     dotnet-sdk_9
