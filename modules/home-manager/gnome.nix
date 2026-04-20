@@ -161,13 +161,6 @@ in
       size = 24;
     };
 
-    # gtk-application-prefer-dark-theme in settings.ini — this is what GTK3
-    # apps like KiCad and wxWidgets apps actually read. Without this they ignore
-    # the dconf color-scheme and fall back to light.
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-
     gtk4.extraCss = builtins.readFile "${catppuccinDark}/share/themes/${darkThemeName}/gtk-4.0/gtk.css";
   };
 
