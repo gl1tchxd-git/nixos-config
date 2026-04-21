@@ -145,11 +145,11 @@ in
   # GTK theming configuration
   gtk = {
     enable = true;
-    theme = {
-      # Default theme is dark (Mocha). night-theme-switcher will switch at runtime.
-      name = darkThemeName;
-      package = catppuccinDark;
-    };
+    # theme = {
+    #   # Default theme is dark (Mocha). night-theme-switcher will switch at runtime.
+    #   name = darkThemeName;
+    #   package = catppuccinDark;
+    # };
 
     iconTheme = {
       name = "Papirus-Dark";
@@ -164,20 +164,20 @@ in
     gtk4.extraCss = builtins.readFile "${catppuccinDark}/share/themes/${darkThemeName}/gtk-4.0/gtk.css";
   };
 
-  # These two are fine to keep as-is — HM doesn't manage them:
-  home.file.".config/gtk-4.0/gtk-dark.css".source =
-    "${catppuccinDark}/share/themes/${darkThemeName}/gtk-4.0/gtk-dark.css";
-  home.file.".config/gtk-4.0/assets" = {
-    recursive = true;
-    source = "${catppuccinDark}/share/themes/${darkThemeName}/gtk-4.0/assets";
-  };
+  # # These two are fine to keep as-is — HM doesn't manage them:
+  # home.file.".config/gtk-4.0/gtk-dark.css".source =
+  #   "${catppuccinDark}/share/themes/${darkThemeName}/gtk-4.0/gtk-dark.css";
+  # home.file.".config/gtk-4.0/assets" = {
+  #   recursive = true;
+  #   source = "${catppuccinDark}/share/themes/${darkThemeName}/gtk-4.0/assets";
+  # };
 
-  # Expose the light theme to ~/.local/share/themes so night-theme-switcher
-  # can find it when GNOME switches to light mode.
-  home.file.".local/share/themes/${lightThemeName}" = {
-    recursive = true;
-    source = "${catppuccinLight}/share/themes/${lightThemeName}";
-  };
+  # # Expose the light theme to ~/.local/share/themes so night-theme-switcher
+  # # can find it when GNOME switches to light mode.
+  # home.file.".local/share/themes/${lightThemeName}" = {
+  #   recursive = true;
+  #   source = "${catppuccinLight}/share/themes/${lightThemeName}";
+  # };
 
   # Configure fonts
   fonts.fontconfig.enable = true;
@@ -220,12 +220,12 @@ in
       gtk-theme = darkThemeName;
     };
 
-    # night-theme-switcher: when GNOME's color-scheme toggle is flipped
-    # (e.g. via Settings → Appearance or the Quick Settings panel), the
-    # extension swaps the GTK3 theme to the correct day/night variant.
-    "org/gnome/shell/extensions/nightthemeswitcher/gtk-variants" = {
-      day = lightThemeName;
-      night = darkThemeName;
-    };
+    # # night-theme-switcher: when GNOME's color-scheme toggle is flipped
+    # # (e.g. via Settings → Appearance or the Quick Settings panel), the
+    # # extension swaps the GTK3 theme to the correct day/night variant.
+    # "org/gnome/shell/extensions/nightthemeswitcher/gtk-variants" = {
+    #   day = lightThemeName;
+    #   night = darkThemeName;
+    # };
   };
 }
