@@ -12,7 +12,7 @@
     teensy-loader-cli
     rpi-imager
     hterm
-    pulseview
+    unstable.pulseview
     sigrok-cli
 
     # System utilities for development
