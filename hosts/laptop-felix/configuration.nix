@@ -38,7 +38,8 @@ let
     /virtualization/wine.nix
     /virtualization/distrobox.nix
     /users.nix
-    /fusion.nix
+    # /fusion.nix
+    /flatpak.nix
   ];
 in
 {
