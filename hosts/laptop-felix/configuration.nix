@@ -37,6 +37,7 @@ let
     /virtualization/libvirt.nix
     /virtualization/wine.nix
     /virtualization/distrobox.nix
+    /virtualization/vmware.nix
     /users.nix
     # /fusion.nix
     /flatpak.nix
