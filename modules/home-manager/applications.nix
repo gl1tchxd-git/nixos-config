@@ -14,10 +14,9 @@
 
     # Communication
     vesktop
-    teams-for-linux
+    unstable.teams-for-linux
     arrpc
     thunderbird
-    teamspeak6-client
 
     # Media & Entertainment
     spotify
