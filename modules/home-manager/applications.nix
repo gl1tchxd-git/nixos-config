@@ -53,7 +53,7 @@
     gparted
     remmina
     freerdp
-    unstable.cisco-packet-tracer_9
+    #unstable.cisco-packet-tracer_9
     wireshark
 
     # Terminal & CLI Tools
@@ -74,7 +74,7 @@
     mesa-demos
     xorg.xprop
     unstable.digital
-    unstable.mathematica
+    #unstable.mathematica
     qalculate-gtk
   ];
 }

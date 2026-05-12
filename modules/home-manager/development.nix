@@ -23,11 +23,11 @@
 
     # IDEs
     # jetbrains-toolbox
-    unstable.jetbrains.idea
+    #unstable.jetbrains.idea
     jetbrains.rust-rover
     jetbrains.clion
     jetbrains.pycharm
-    unstable.jetbrains.rider
+    #unstable.jetbrains.rider
     # vscodium
     unstable.vscode
     unstable.zed-editor
