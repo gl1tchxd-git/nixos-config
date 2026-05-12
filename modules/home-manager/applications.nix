@@ -38,7 +38,8 @@
     rnote
 
     # Creative & Design
-    unstable.kicad
+    kicad
+    #(unstable.kicad.override { with3d = true; })
     # master.kicad-unstable
     # eagle
     aseprite
