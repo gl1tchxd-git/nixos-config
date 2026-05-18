@@ -2,11 +2,19 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  nix.settings = { 
-    experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   imports = [
@@ -19,7 +27,7 @@
 
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Vienna";
@@ -43,7 +51,7 @@
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
-  
+
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia = {
@@ -59,8 +67,8 @@
 
   # Enable sound.
   services.pipewire = {
-     enable = true;
-     pulse.enable = true;
+    enable = true;
+    pulse.enable = true;
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -137,4 +145,3 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
-
