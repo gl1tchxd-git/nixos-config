@@ -14,7 +14,7 @@
 
     # Communication
     vesktop
-    unstable.teams-for-linux
+    # unstable.teams-for-linux
     arrpc
     thunderbird
 
