@@ -48,6 +48,7 @@
     krita
     gimp
     prusa-slicer
+    bambu-studio
 
     # System Tools
     gparted
