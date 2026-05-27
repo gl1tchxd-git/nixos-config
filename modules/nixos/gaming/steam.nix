@@ -10,6 +10,7 @@
       extraEnv = {
         GDK_BACKEND = "x11";
       };
+      extraArgs = "-no-xim";
     };
   };
 
