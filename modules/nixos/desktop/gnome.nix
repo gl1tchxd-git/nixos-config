@@ -13,4 +13,15 @@
   systemd.services.gnome-remote-desktop = {
     wantedBy = [ "graphical.target" ];
   };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+  };
+
+  environment.sessionVariables = {
+    WAYLAND_DISPLAY = "wayland-0"; # usually set automatically
+    XDG_CURRENT_DESKTOP = "GNOME";
+    XDG_SESSION_TYPE = "wayland";
+  };
 }
