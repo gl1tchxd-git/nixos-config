@@ -23,6 +23,7 @@
     spotify
     losslesscut-bin
     ani-cli
+    calibre
 
     # Gaming
     lunar-client
