@@ -13,7 +13,7 @@
     inputs.zen-browser.packages."${pkgs.system}".twilight
 
     # Communication
-    vesktop
+    unstable.vesktop
     unstable.teams-for-linux
     arrpc
     element-desktop
