@@ -38,6 +38,7 @@
     libreoffice-still
     xournalpp
     rnote
+    unstable.gnome-frog
 
     # Creative & Design
     (unstable.kicad.override { with3d = true; })
