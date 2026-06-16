@@ -26,6 +26,7 @@ let
     /hardware/sayo.nix
     /hardware/tablet.nix
     /hardware/touchpad.nix
+    # /hardware/displaylink.nix
     /localization
     /networking
     /networking/tailscale.nix

@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 
 {
   programs.zsh = {
@@ -8,14 +14,16 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-        ll = "ls -l";
-        
-        nrs = "sudo nixos-rebuild switch --flake ~/nixos;";
-        nrt = "sudo nixos-rebuild test --flake ~/nixos;";
+      ll = "ls -l";
 
-        amend = "git commit --amend --no-edit;";
+      nrs = "sudo nixos-rebuild switch --flake ~/nixos;";
+      nrt = "sudo nixos-rebuild test --flake ~/nixos;";
+
+      amend = "git commit --amend --no-edit;";
+
+      wakepc = "ssh felix@server-felix \"wakeonlan 08:BF:B8:17:D8:33\"";
     };
-    
+
     history.size = 10000;
 
     initContent = lib.mkBefore ''
