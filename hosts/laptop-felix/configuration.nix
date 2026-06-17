@@ -42,6 +42,7 @@ let
     /users.nix
     # /fusion.nix
     /flatpak.nix
+    /aliases.nix
   ];
 in
 {
