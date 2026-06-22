@@ -32,6 +32,7 @@ let
     /networking/tailscale.nix
     /networking/vpns.nix
     /networking/ports.nix
+    /networking/syncthing.nix
     /services/onedrive.nix
     /services/printing.nix
     /virtualization/docker.nix
