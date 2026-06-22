@@ -57,6 +57,7 @@
     gparted
     remmina
     freerdp
+    moonlight-qt
     #unstable.cisco-packet-tracer_9
     wireshark
 
