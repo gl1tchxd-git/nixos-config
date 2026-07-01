@@ -3,6 +3,8 @@
   environment.systemPackages = with pkgs; [
     openjdk25
     gcc
+    pkg-config
+    dbus
     rustup
     bison
     gnumake
