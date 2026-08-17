@@ -5,29 +5,6 @@
   ...
 }:
 
-let
-  catppuccinDark = pkgs.catppuccin-gtk.override {
-    accents = [ "mauve" ];
-    size = "compact";
-    tweaks = [
-      "rimless"
-      "black"
-    ];
-    variant = "mocha";
-  };
-  catppuccinLight = pkgs.catppuccin-gtk.override {
-    accents = [ "mauve" ];
-    size = "compact";
-    tweaks = [
-      "rimless"
-      "black"
-    ];
-    variant = "latte";
-  };
-  # Correct name format: Catppuccin-{Variant}-{Size}-{Accent}-{Dark|Light}
-  darkThemeName = "catppuccin-mocha-mauve-compact+rimless,black";
-  lightThemeName = "catppuccin-latte-mauve-compact+rimless,black";
-in
 {
   home.activation.removeExistingBackups = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
     find ~/.config -name "*.hm-backup" -delete 2>/dev/null || true
@@ -117,10 +94,6 @@ in
   home.packages =
     with pkgs;
     [
-      catppuccin
-      magnetic-catppuccin-gtk
-      catppuccin-cursors
-
       jetbrains-mono
 
       gnome-tweaks
@@ -134,37 +107,7 @@ in
       system-monitor
       night-theme-switcher
       user-themes
-    ])
-    ++ (with pkgs.myPackages.gnomeCursors; [
-      hoshimi-miyabi
     ]);
-
-  gtk = {
-    enable = true;
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
-    };
-
-    cursorTheme = {
-      name = "Hoshimi-miyabi";
-      size = 24;
-    };
-  };
-  fonts.fontconfig.enable = true;
-
-  home.pointerCursor = {
-    name = "Hoshimi-miyabi";
-    package = pkgs.myPackages.gnomeCursors.hoshimi-miyabi;
-    size = 24;
-    gtk.enable = true;
-    x11.enable = true;
-  };
-
-  home.sessionVariables = {
-    XCURSOR_THEME = "Hoshimi-miyabi";
-    XCURSOR_SIZE = "24";
-  };
 
   dconf.enable = true;
   dconf.settings = {
